@@ -1,0 +1,318 @@
+.section-two {
+    margin: auto;
+    padding: 20px;
+    max-width: 100%;
+    height: 100%;
+    background-color: rgb(245, 246, 247);
+  }
+.card {
+  background-color: #ffffff; /* White background */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #cccccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.header-image {
+  width: 124px;
+  height: 124px;
+  flex-shrink: 0; /* Prevent image from shrinking */
+}
+
+.header-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.user-info {
+  flex: 1; /* Take remaining space */
+  margin-left: 20px; /* Adjust spacing between image and text */
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.user-info h1,
+.user-info h2 {
+  margin: 0; /* Remove default margin */
+}
+
+.user-info h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.user-info h2 {
+  font-size: 1.2rem; /* Adjust font size for title */
+  font-weight: 500;
+}
+
+.main {
+  display: flex;
+}
+hr {
+  border-top: 1px solid #e1e7ed;
+}
+.left {
+  width: 35%;
+  margin-right: 20px;
+}
+.right {
+  width: 65%;
+}
+.contact,
+.tools,
+.education {
+  width: 90%;
+}
+.contact-header,
+.tools-header,
+.education-header,
+.about-me-header,
+.work-experience-header {
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 10px 0;
+  color: #99a3b2;
+}
+.social-info {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+.social-info-image {
+  width: 15%;
+}
+.social-info-link {
+  width: 75%;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+.info-link {
+  color: #111111ee;
+  cursor: pointer;
+}
+.info-link:visited {
+  color: #111111ee;
+  cursor: pointer;
+}
+#html-list {
+  text-transform: uppercase;
+}
+.tools-skill-list {
+  padding: 5px 20px 0;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+.tools-list li {
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  padding: 5px;
+}
+.school-name {
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.course {
+  text-indent: 10px;
+  font-weight: 400;
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+.qualification-level {
+  text-indent: 10px;
+  font-weight: 400;
+  font-size: 1rem;
+}
+.year-awarded {
+  text-indent: 10px;
+  font-weight: 400;
+  font-size: 1rem;
+}
+.qualification-list {
+  padding: 10px;
+}
+.qualification-one,
+.qualification-two,
+.qualification-three {
+  padding: 10px 0;
+}
+.about-content {
+  padding: 10px 0;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+.about-text {
+  font-size: 1.3rem;
+  word-spacing: 5px;
+  line-height: 1.5;
+}
+.experience {
+  padding: 20px;
+}
+.job-description {
+  padding: 10px;
+}
+.job-list li {
+  padding: 5px;
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+.company-name {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.job-title,
+.job-duration {
+  text-indent: 10px;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+.education,
+.about-me,
+.work-experience,
+.tools,
+.contanct {
+  word-wrap: break-word;
+  word-break: break-word;
+}
+.back-container {
+  float: right;
+  padding-bottom: 15px;
+}
+.back-button {
+  font-size: 50px;
+  color: #99a3b2;
+  margin: 0;
+  background-color: rgba(65, 65, 65, 0.842);
+  border-radius: 50%;
+}
+.back-link {
+  text-decoration: none;
+  color: #99a3b2;
+  font-size: 20px;
+  margin: 0;
+}
+.back-link span {
+  font-size: 20px;
+}
+.back-link:visited {
+  text-decoration: none;
+  color: #99a3b2;
+  font-size: 20px;
+  margin: 0;
+}
+.back-link:hover {
+  text-decoration: none;
+  color: #505153;
+  font-size: 20px;
+  margin: 0;
+}
+
+@media screen and (max-width: 800px) {
+  #body {
+    max-width: 100%;
+    width: 100%;
+  }
+  .main {
+    flex-direction: column;
+  }
+  .left,
+  .right {
+    width: 100%;
+  }
+  .education,
+  .contact,
+  .tools,
+  .about-me,
+  .work-experience {
+    width: 100%;
+  }
+
+  .social-info-image {
+    width: 9%;
+  }
+  .tools-list li {
+    font-size: 0.9rem;
+  }
+  .course,
+  .qualification-level,
+  .year-awarded {
+    font-size: 0.8rem;
+  }
+  .about-text {
+    font-size: 0.9rem;
+  }
+  .company-name {
+    font-size: 1rem;
+  }
+  .job-duration,
+  .job-title {
+    font-size: 0.8rem;
+  }
+  .job-list li {
+    font-size: 0.9rem;
+  }
+}
+
+@media print {
+  body {
+    width: 800px;
+    max-width: 800px;
+  }
+  .main {
+    flex-direction: column;
+  }
+  .left,
+  .right {
+    width: 100%;
+  }
+  .education,
+  .contact,
+  .tools,
+  .about-me,
+  .work-experience {
+    width: 100%;
+  }
+
+  .social-info-image {
+    width: 9%;
+  }
+  .tools-list li {
+    font-size: 0.9rem;
+  }
+  .course,
+  .qualification-level,
+  .year-awarded {
+    font-size: 0.8rem;
+  }
+  .about-text {
+    font-size: 0.9rem;
+  }
+  .company-name {
+    font-size: 1rem;
+  }
+  .job-duration,
+  .job-title {
+    font-size: 0.8rem;
+  }
+  .job-list li {
+    font-size: 0.9rem;
+  }
+  .back-container {
+    display: none;
+  }
+}
