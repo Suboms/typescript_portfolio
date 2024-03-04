@@ -20,7 +20,7 @@ function typeWriterName() {
         setTimeout(typeWriterName, speed);
     }
     else {
-        setTimeout(typeWriterHeader, speed); // Once name is fully typed, start typing the header
+        setTimeout(typeWriterHeader, speed);
     }
 }
 function typeWriterHeader() {
@@ -43,17 +43,22 @@ function typeWriterPara() {
         contactButtons.classList.remove("hidden");
     }
 }
-// Start typing the name first
-let anchorElements = document.querySelectorAll("a");
-anchorElements.forEach(element2 => {
-    linkList.forEach(element1 => {
-        if (element2.parentNode === element1) {
-            element2.addEventListener("click", (e) => {
-                console.log(element1);
+let anchorElements = Array.from(document.getElementsByClassName("tablinks"));
+linkList.forEach((element) => {
+    anchorElements.forEach((anchorElement) => {
+        if (anchorElement.parentNode === element) {
+            anchorElement.addEventListener("click", (e) => {
                 e.preventDefault();
             });
         }
     });
+});
+let tabcontents = Array.from(document.getElementsByClassName("tabcontent"));
+tabcontents.forEach((element) => {
+    element.style.display = "none";
+});
+anchorElements.forEach((element) => {
+    element.className = element.className.replace("active", "");
 });
 document.addEventListener("DOMContentLoaded", () => {
     typeWriterName();

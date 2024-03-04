@@ -7,7 +7,7 @@ const contactButtons = document.querySelector(
   ".contact-button"
 ) as HTMLDivElement;
 
-const linkList:NodeListOf<Element> = document.querySelectorAll(".nav-item")
+const linkList: NodeListOf<Element> = document.querySelectorAll(".nav-item");
 
 let nameNum: number = 0;
 let headerNum: number = 0;
@@ -25,7 +25,7 @@ function typeWriterName() {
     nameNum++;
     setTimeout(typeWriterName, speed);
   } else {
-    setTimeout(typeWriterHeader, speed); // Once name is fully typed, start typing the header
+    setTimeout(typeWriterHeader, speed);
   }
 }
 
@@ -46,27 +46,34 @@ function typeWriterPara() {
 
     setTimeout(typeWriterPara, speed);
   } else {
-    contactButtons.classList.remove("hidden")
+    contactButtons.classList.remove("hidden");
   }
 }
-// Start typing the name first
 
-
-
-
-
-let anchorElements:NodeListOf<Element> = document.querySelectorAll("a") ;
-
-anchorElements.forEach(element2 => {
-    linkList.forEach(element1 => {
-        if (element2.parentNode === element1) {
-            element2.addEventListener("click", (e) => {
-                console.log(element1);
-                e.preventDefault();
-            });
-        }
-    });
+let anchorElements = Array.from(
+  document.getElementsByClassName("tablinks") as HTMLCollectionOf<HTMLElement>
+);
+linkList.forEach((element) => {
+  anchorElements.forEach((anchorElement) => {
+    if (anchorElement.parentNode === element) {
+      anchorElement.addEventListener("click", (e) => {
+        e.preventDefault();
+      });
+    }
+  });
 });
+
+let tabcontents = Array.from(
+  document.getElementsByClassName("tabcontent") as HTMLCollectionOf<HTMLElement>
+);
+
+tabcontents.forEach((element) => {
+  element.style.display = "none";
+});
+anchorElements.forEach((element)=>{
+  element.className = element.className.replace("active", "")
+})
+
 
 document.addEventListener("DOMContentLoaded", () => {
   typeWriterName();
