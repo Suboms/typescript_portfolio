@@ -14,7 +14,12 @@
   </head>
   <body class="body" id="body">
     <div class="container">
-      <div class="navbar">
+      <div class="menu-icon">
+        <div class="bar-1"></div>
+        <div class="bar-2"></div>
+        <div class="bar-3"></div>
+      </div>
+      <div class="navbar responsive-navbar">
         <div class="nav-links">
           <ul class="nav-list">
             <li class="nav-item">
@@ -24,41 +29,22 @@
               <a href="#section-two" class="tablinks">Resume</a>
             </li>
             <li class="nav-item">
-              <a href="#section-three" class="tablinks">My works</a>
+              <a href="#section-three" class="tablinks">works</a>
             </li>
             <li class="nav-item">
               <a href="#section-four" class="tablinks">Contacts</a>
             </li>
+            <li class="nav-item close-btn">
+              <a href="javascript:void(0)" id="closeBtn">&times;</a>
+            </li>
           </ul>
         </div>
-        <!-- <div class="social-links">
-          <ul class="nav-list">
-            <li class="nav-item">
-              <a
-              href="mailto:olasubomi24200201@gmail.com" target="_blank"
-                ><img src="/assets/img/mail.svg" alt="email"
-              /></a>
-            </li>
-            <li class="nav-item">
-                <a rel="noopener"
-                href="https://www.linkedin.com/in/oladunjoye-sulaiman-olasubomi-31b68819b/" target="_blank"
-                ><img src="/assets/img/brand-linkedin.svg" alt="email"
-              /></a>
-            </li>
-            <li class="nav-item">
-              <a href="https://twitter.com/dubsyoflagos" rel="noopener" target="_blank">
-                <img src="/assets/img/brand-twitter.svg" alt="email"
-              /></a>
-            </li>
-            <li class="nav-item">
-              <a href="https://github.com/Suboms" target="_blank" rel="noopener noreferrer"
-                ><img src="/assets/img/brand-github.svg" alt="email"
-              /></a>
-            </li>
-          </ul>
-        </div> -->
       </div>
-      <section class="section-one tabcontent" id="section-one">
+      
+      <section
+        class="section-one tabcontent"
+        id="section-one"
+        style="display: none">
         <div class="hero">
           <div class="introduction">
             <div class="hero-image">
@@ -100,9 +86,6 @@
         id="section-two"
         style="display: none">
         <div class="header card">
-          <div class="header-image">
-            <img src="/assets/img/test.jpg" alt="hero" class="user-image" />
-          </div>
           <div class="user-info">
             <h1 class="user-name">Oladunjoye Olasubomi</h1>
             <h2 class="user-title">Web Developer</h2>
@@ -300,7 +283,7 @@
               </div>
             </div>
             <div class="back-container">
-              <a href="/" class="back-link">Go Back <span>&#8594;</span></a>
+              <a href="" class="back-link">Go Back <span>&#8594;</span></a>
             </div>
           </div>
         </div>
@@ -314,8 +297,42 @@
       <section
         class="section-four tabcontent"
         id="section-four"
-        style="display: none"></section>
+        style="display: none">
+        <div class="social-links">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a href="mailto:olasubomi24200201@gmail.com" target="_blank"
+                ><img src="/assets/img/mail.svg" alt="email"
+              /></a>
+            </li>
+            <li class="nav-item">
+              <a
+                rel="noopener"
+                href="https://www.linkedin.com/in/oladunjoye-sulaiman-olasubomi-31b68819b/"
+                target="_blank"
+                ><img src="/assets/img/brand-linkedin.svg" alt="email"
+              /></a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="https://twitter.com/dubsyoflagos"
+                rel="noopener"
+                target="_blank">
+                <img src="/assets/img/brand-twitter.svg" alt="email"
+              /></a>
+            </li>
+            <li class="nav-item">
+              <a
+                href="https://github.com/Suboms"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img src="/assets/img/brand-github.svg" alt="email"
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
-    <script type="module" src="/build/index.js" defer></script>
+    <script src="/build/index.js" defer></script>
   </body>
 </html>

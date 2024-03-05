@@ -13,6 +13,11 @@ let paraText = `Passionate web developer specializing in both front-end and
 back-end technologies. Available for freelance projects and eager
 for new opportunities.`;
 let speed = 100;
+let tabLinks = Array.from(document.getElementsByClassName("tablinks"));
+let tabcontents = Array.from(document.getElementsByClassName("tabcontent"));
+let navBar = document.querySelector(".navbar");
+let menuIcon = document.querySelector(".menu-icon");
+let closeBtn = document.getElementById("closeBtn");
 function typeWriterName() {
     if (nameNum < nameText.length) {
         nameSection.innerHTML += nameText.charAt(nameNum);
@@ -43,23 +48,62 @@ function typeWriterPara() {
         contactButtons.classList.remove("hidden");
     }
 }
-let anchorElements = Array.from(document.getElementsByClassName("tablinks"));
-linkList.forEach((element) => {
-    anchorElements.forEach((anchorElement) => {
-        if (anchorElement.parentNode === element) {
-            anchorElement.addEventListener("click", (e) => {
-                e.preventDefault();
-            });
-        }
+tabLinks.forEach((element, index) => {
+    element.addEventListener("click", (e) => {
+        e.preventDefault();
+        setActiveSection(index);
     });
 });
-let tabcontents = Array.from(document.getElementsByClassName("tabcontent"));
-tabcontents.forEach((element) => {
-    element.style.display = "none";
+function hideSection() {
+    tabcontents = Array.from(document.getElementsByClassName("tabcontent"));
+    tabcontents.forEach((element, index, tabcontentsArray) => {
+        tabcontentsArray[index].style.display = "none";
+    });
+}
+let activeIndex = 0;
+function setActiveSection(index) {
+    activeIndex = index;
+    tabcontents.forEach((content, contentindex) => {
+        content.style.display = contentindex === index ? "block" : "none";
+        tabLinks[contentindex].classList.toggle("active", contentindex === index);
+    });
+}
+function hideNav() {
+    let navBarr = navBar;
+    window.onscroll = () => {
+        let currentScrollPos = window.scrollY;
+        if (currentScrollPos > 0) {
+            navBarr.classList.add("hide-nav");
+        }
+        else {
+            navBarr.classList.remove("hide-nav");
+        }
+        currentScrollPos;
+    };
+}
+function responsiveWin() {
+    const navbar = navBar;
+    navbar.classList.add('navbar-open');
+    tabcontents.forEach((element) => {
+        element.style.marginLeft = "250px";
+    });
+}
+function closeMenu() {
+    const navbar = navBar;
+    navbar.classList.remove('navbar-open');
+    tabcontents.forEach((element) => {
+        element.style.marginLeft = "0";
+    });
+}
+menuIcon.addEventListener("click", () => {
+    responsiveWin();
 });
-anchorElements.forEach((element) => {
-    element.className = element.className.replace("active", "");
+closeBtn.addEventListener("click", () => {
+    closeMenu();
 });
 document.addEventListener("DOMContentLoaded", () => {
     typeWriterName();
+    hideSection();
+    tabLinks[0].click();
+    hideNav();
 });

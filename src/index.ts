@@ -6,7 +6,6 @@ const textPara = document.querySelector(".text-para") as HTMLParagraphElement;
 const contactButtons = document.querySelector(
   ".contact-button"
 ) as HTMLDivElement;
-
 const linkList: NodeListOf<Element> = document.querySelectorAll(".nav-item");
 
 let nameNum: number = 0;
@@ -18,6 +17,15 @@ let paraText: string = `Passionate web developer specializing in both front-end 
 back-end technologies. Available for freelance projects and eager
 for new opportunities.`;
 let speed: number = 100;
+let tabLinks = Array.from(
+  document.getElementsByClassName("tablinks") as HTMLCollectionOf<HTMLElement>
+);
+let tabcontents = Array.from(
+  document.getElementsByClassName("tabcontent") as HTMLCollectionOf<HTMLElement>
+);
+let navBar = document.querySelector(".navbar") as HTMLDivElement;
+let menuIcon = document.querySelector(".menu-icon") as HTMLDivElement
+let closeBtn = document.getElementById("closeBtn") as HTMLAnchorElement
 
 function typeWriterName() {
   if (nameNum < nameText.length) {
@@ -50,31 +58,79 @@ function typeWriterPara() {
   }
 }
 
-let anchorElements = Array.from(
-  document.getElementsByClassName("tablinks") as HTMLCollectionOf<HTMLElement>
-);
-linkList.forEach((element) => {
-  anchorElements.forEach((anchorElement) => {
-    if (anchorElement.parentNode === element) {
-      anchorElement.addEventListener("click", (e) => {
-        e.preventDefault();
-      });
-    }
+tabLinks.forEach((element: HTMLElement, index: number) => {
+  element.addEventListener("click", (e) => {
+    e.preventDefault();
+    setActiveSection(index);
   });
 });
 
-let tabcontents = Array.from(
-  document.getElementsByClassName("tabcontent") as HTMLCollectionOf<HTMLElement>
-);
 
-tabcontents.forEach((element) => {
-  element.style.display = "none";
-});
-anchorElements.forEach((element)=>{
-  element.className = element.className.replace("active", "")
+function hideSection() {
+  tabcontents = Array.from(
+    document.getElementsByClassName(
+      "tabcontent"
+    ) as HTMLCollectionOf<HTMLElement>
+  );
+  tabcontents.forEach(
+    (element: HTMLElement, index: number, tabcontentsArray: HTMLElement[]) => {
+      tabcontentsArray[index].style.display = "none";
+    }
+  );
+}
+
+let activeIndex = 0;
+
+function setActiveSection(index: number) {
+  activeIndex = index;
+  tabcontents.forEach((content: HTMLElement, contentindex: number) => {
+    content.style.display = contentindex === index ? "block" : "none";
+    tabLinks[contentindex].classList.toggle("active", contentindex === index);
+  });
+}
+
+function hideNav() {
+ let navBarr = navBar
+ 
+  window.onscroll = () => {
+    let currentScrollPos: number = window.scrollY;
+
+    if (currentScrollPos > 0) {
+      navBarr.classList.add("hide-nav")
+    } else {
+      navBarr.classList.remove("hide-nav")
+    }
+    currentScrollPos;
+  };
+}
+
+function responsiveWin(){
+  const navbar = navBar
+  navbar.classList.add('navbar-open');
+  tabcontents.forEach((element:HTMLElement)=>{
+    element.style.marginLeft = "250px"
+  })
+}
+
+function closeMenu() {
+  const navbar = navBar
+  navbar.classList.remove('navbar-open');
+  tabcontents.forEach((element:HTMLElement)=>{
+    element.style.marginLeft = "0"
+  })
+}
+
+menuIcon.addEventListener("click", ()=>{
+  responsiveWin();
+})
+closeBtn.addEventListener("click", ()=>{
+  closeMenu()
 })
 
 
 document.addEventListener("DOMContentLoaded", () => {
   typeWriterName();
+  hideSection();
+  tabLinks[0].click();
+  hideNav();
 });
