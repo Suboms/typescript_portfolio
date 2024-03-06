@@ -149,7 +149,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: fadeIn 3s ease-in forwards;
+  animation: fadeIn 1.5s ease-in forwards;
   opacity: 0;
 }
 .my-work {
@@ -157,9 +157,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: fadeIn 5s ease-in forwards;
+  animation: fadeIn 2s ease-in forwards;
   opacity: 0;
-  animation-delay: 2.5s;
+  animation-delay: 1.6s;
 }
 .contact-buttons {
   padding: 15px;
@@ -184,7 +184,7 @@
 }
 
 .tabcontent {
-  animation: fadeEffect 2s ease-in;
+  animation: fadeEffect 1s ease-in;
 }
 
 /* Go from zero to full opacity */
@@ -272,6 +272,11 @@
   }
   .menu-icon {
     display: block;
+    padding: 0 20px;
+  }
+  .flex-container{
+    display: flex;
+    justify-content: space-between;
   }
   .bar-1,
   .bar-2,

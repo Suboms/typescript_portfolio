@@ -7,6 +7,16 @@ const contactButtons = document.querySelector(
   ".contact-button"
 ) as HTMLDivElement;
 const linkList: NodeListOf<Element> = document.querySelectorAll(".nav-item");
+let tabLinks = Array.from(
+  document.getElementsByClassName("tablinks") as HTMLCollectionOf<HTMLElement>
+);
+let tabcontents = Array.from(
+  document.getElementsByClassName("tabcontent") as HTMLCollectionOf<HTMLElement>
+);
+let navBar = document.querySelector(".navbar") as HTMLDivElement;
+let menuIcon = document.querySelector(".menu-icon") as HTMLDivElement;
+let closeBtn = document.getElementById("closeBtn") as HTMLAnchorElement;
+let divContainer = document.querySelector(".container") as HTMLDivElement;
 
 let nameNum: number = 0;
 let headerNum: number = 0;
@@ -16,16 +26,7 @@ let headerText: string = "A Web Developer based in Lagos, Nigeria.";
 let paraText: string = `Passionate web developer specializing in both front-end and
 back-end technologies. Available for freelance projects and eager
 for new opportunities.`;
-let speed: number = 100;
-let tabLinks = Array.from(
-  document.getElementsByClassName("tablinks") as HTMLCollectionOf<HTMLElement>
-);
-let tabcontents = Array.from(
-  document.getElementsByClassName("tabcontent") as HTMLCollectionOf<HTMLElement>
-);
-let navBar = document.querySelector(".navbar") as HTMLDivElement;
-let menuIcon = document.querySelector(".menu-icon") as HTMLDivElement
-let closeBtn = document.getElementById("closeBtn") as HTMLAnchorElement
+let speed: number = 50;
 
 function typeWriterName() {
   if (nameNum < nameText.length) {
@@ -65,7 +66,6 @@ tabLinks.forEach((element: HTMLElement, index: number) => {
   });
 });
 
-
 function hideSection() {
   tabcontents = Array.from(
     document.getElementsByClassName(
@@ -86,51 +86,62 @@ function setActiveSection(index: number) {
   tabcontents.forEach((content: HTMLElement, contentindex: number) => {
     content.style.display = contentindex === index ? "block" : "none";
     tabLinks[contentindex].classList.toggle("active", contentindex === index);
+    if (tabcontents[1].style.display === "block" && window.innerWidth <= 800) {
+      divContainer.classList.toggle("flex-container");
+    }
   });
 }
 
 function hideNav() {
- let navBarr = navBar
- 
+  let navBarr = navBar;
+
   window.onscroll = () => {
     let currentScrollPos: number = window.scrollY;
 
     if (currentScrollPos > 0) {
-      navBarr.classList.add("hide-nav")
+      navBarr.classList.add("hide-nav");
     } else {
-      navBarr.classList.remove("hide-nav")
+      navBarr.classList.remove("hide-nav");
     }
     currentScrollPos;
   };
 }
 
-function responsiveWin(){
-  const navbar = navBar
-  navbar.classList.add('navbar-open');
-  tabcontents.forEach((element:HTMLElement)=>{
-    element.style.marginLeft = "250px"
-  })
+function responsiveWin() {
+  const navbar = navBar;
+  navbar.classList.add("navbar-open");
+  tabcontents.forEach((element: HTMLElement) => {
+    element.style.marginLeft = "250px";
+  });
 }
 
 function closeMenu() {
-  const navbar = navBar
-  navbar.classList.remove('navbar-open');
-  tabcontents.forEach((element:HTMLElement)=>{
-    element.style.marginLeft = "0"
-  })
+  const navbar = navBar;
+  navbar.classList.remove("navbar-open");
+  tabcontents.forEach((element: HTMLElement) => {
+    element.style.marginLeft = "0";
+  });
 }
 
-menuIcon.addEventListener("click", ()=>{
+menuIcon.addEventListener("click", () => {
   responsiveWin();
-})
-closeBtn.addEventListener("click", ()=>{
-  closeMenu()
-})
+});
+closeBtn.addEventListener("click", () => {
+  closeMenu();
+});
 
+//tabLinks[1].addEventListener("click", () => {
+
+//   divContainer.classList.add("flex-container");
+// } else {
+//   divContainer.classList.remove("flex-container");
+// }
+// });
 
 document.addEventListener("DOMContentLoaded", () => {
   typeWriterName();
   hideSection();
   tabLinks[0].click();
   hideNav();
+  // addClass();
 });

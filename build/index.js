@@ -4,6 +4,12 @@ const textHeader = document.querySelector(".text-header");
 const textPara = document.querySelector(".text-para");
 const contactButtons = document.querySelector(".contact-button");
 const linkList = document.querySelectorAll(".nav-item");
+let tabLinks = Array.from(document.getElementsByClassName("tablinks"));
+let tabcontents = Array.from(document.getElementsByClassName("tabcontent"));
+let navBar = document.querySelector(".navbar");
+let menuIcon = document.querySelector(".menu-icon");
+let closeBtn = document.getElementById("closeBtn");
+let divContainer = document.querySelector(".container");
 let nameNum = 0;
 let headerNum = 0;
 let paraNum = 0;
@@ -12,12 +18,7 @@ let headerText = "A Web Developer based in Lagos, Nigeria.";
 let paraText = `Passionate web developer specializing in both front-end and
 back-end technologies. Available for freelance projects and eager
 for new opportunities.`;
-let speed = 100;
-let tabLinks = Array.from(document.getElementsByClassName("tablinks"));
-let tabcontents = Array.from(document.getElementsByClassName("tabcontent"));
-let navBar = document.querySelector(".navbar");
-let menuIcon = document.querySelector(".menu-icon");
-let closeBtn = document.getElementById("closeBtn");
+let speed = 50;
 function typeWriterName() {
     if (nameNum < nameText.length) {
         nameSection.innerHTML += nameText.charAt(nameNum);
@@ -66,6 +67,9 @@ function setActiveSection(index) {
     tabcontents.forEach((content, contentindex) => {
         content.style.display = contentindex === index ? "block" : "none";
         tabLinks[contentindex].classList.toggle("active", contentindex === index);
+        if (tabcontents[1].style.display === "block" && window.innerWidth <= 800) {
+            divContainer.classList.toggle("flex-container");
+        }
     });
 }
 function hideNav() {
@@ -83,14 +87,14 @@ function hideNav() {
 }
 function responsiveWin() {
     const navbar = navBar;
-    navbar.classList.add('navbar-open');
+    navbar.classList.add("navbar-open");
     tabcontents.forEach((element) => {
         element.style.marginLeft = "250px";
     });
 }
 function closeMenu() {
     const navbar = navBar;
-    navbar.classList.remove('navbar-open');
+    navbar.classList.remove("navbar-open");
     tabcontents.forEach((element) => {
         element.style.marginLeft = "0";
     });
@@ -101,9 +105,16 @@ menuIcon.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
     closeMenu();
 });
+//tabLinks[1].addEventListener("click", () => {
+//   divContainer.classList.add("flex-container");
+// } else {
+//   divContainer.classList.remove("flex-container");
+// }
+// });
 document.addEventListener("DOMContentLoaded", () => {
     typeWriterName();
     hideSection();
     tabLinks[0].click();
     hideNav();
+    // addClass();
 });
