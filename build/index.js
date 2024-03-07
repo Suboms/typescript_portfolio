@@ -10,6 +10,10 @@ let navBar = document.querySelector(".navbar");
 let menuIcon = document.querySelector(".menu-icon");
 let closeBtn = document.getElementById("closeBtn");
 let divContainer = document.querySelector(".container");
+let workButtonContainer = document.querySelector(".my-work");
+let contactButtonContainer = document.querySelector(".contact-page");
+let workButton = document.querySelector(".my-work-button");
+let contactButton = document.querySelector(".contact-me");
 let nameNum = 0;
 let headerNum = 0;
 let paraNum = 0;
@@ -18,7 +22,8 @@ let headerText = "A Web Developer based in Lagos, Nigeria.";
 let paraText = `Passionate web developer specializing in both front-end and
 back-end technologies. Available for freelance projects and eager
 for new opportunities.`;
-let speed = 50;
+let speed = 25;
+let animationPlayed = false;
 function typeWriterName() {
     if (nameNum < nameText.length) {
         nameSection.innerHTML += nameText.charAt(nameNum);
@@ -67,9 +72,6 @@ function setActiveSection(index) {
     tabcontents.forEach((content, contentindex) => {
         content.style.display = contentindex === index ? "block" : "none";
         tabLinks[contentindex].classList.toggle("active", contentindex === index);
-        if (tabcontents[1].style.display === "block" && window.innerWidth <= 800) {
-            divContainer.classList.toggle("flex-container");
-        }
     });
 }
 function hideNav() {
@@ -89,7 +91,7 @@ function responsiveWin() {
     const navbar = navBar;
     navbar.classList.add("navbar-open");
     tabcontents.forEach((element) => {
-        element.style.marginLeft = "250px";
+        element.classList.toggle("responsive-tabcontent");
     });
 }
 function closeMenu() {
@@ -104,6 +106,12 @@ menuIcon.addEventListener("click", () => {
 });
 closeBtn.addEventListener("click", () => {
     closeMenu();
+});
+workButton.addEventListener("click", () => {
+    tabLinks[2].click();
+});
+contactButton.addEventListener("click", () => {
+    tabLinks[3].click();
 });
 //tabLinks[1].addEventListener("click", () => {
 //   divContainer.classList.add("flex-container");

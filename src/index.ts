@@ -17,6 +17,12 @@ let navBar = document.querySelector(".navbar") as HTMLDivElement;
 let menuIcon = document.querySelector(".menu-icon") as HTMLDivElement;
 let closeBtn = document.getElementById("closeBtn") as HTMLAnchorElement;
 let divContainer = document.querySelector(".container") as HTMLDivElement;
+let workButtonContainer = document.querySelector(".my-work") as HTMLDivElement;
+let contactButtonContainer = document.querySelector(
+  ".contact-page"
+) as HTMLDivElement;
+let workButton = document.querySelector(".my-work-button") as HTMLButtonElement;
+let contactButton = document.querySelector(".contact-me") as HTMLButtonElement;
 
 let nameNum: number = 0;
 let headerNum: number = 0;
@@ -26,7 +32,8 @@ let headerText: string = "A Web Developer based in Lagos, Nigeria.";
 let paraText: string = `Passionate web developer specializing in both front-end and
 back-end technologies. Available for freelance projects and eager
 for new opportunities.`;
-let speed: number = 50;
+let speed: number = 25;
+let animationPlayed = false;
 
 function typeWriterName() {
   if (nameNum < nameText.length) {
@@ -86,9 +93,6 @@ function setActiveSection(index: number) {
   tabcontents.forEach((content: HTMLElement, contentindex: number) => {
     content.style.display = contentindex === index ? "block" : "none";
     tabLinks[contentindex].classList.toggle("active", contentindex === index);
-    if (tabcontents[1].style.display === "block" && window.innerWidth <= 800) {
-      divContainer.classList.toggle("flex-container");
-    }
   });
 }
 
@@ -111,7 +115,7 @@ function responsiveWin() {
   const navbar = navBar;
   navbar.classList.add("navbar-open");
   tabcontents.forEach((element: HTMLElement) => {
-    element.style.marginLeft = "250px";
+    element.classList.toggle("responsive-tabcontent");
   });
 }
 
@@ -123,6 +127,8 @@ function closeMenu() {
   });
 }
 
+
+
 menuIcon.addEventListener("click", () => {
   responsiveWin();
 });
@@ -130,6 +136,12 @@ closeBtn.addEventListener("click", () => {
   closeMenu();
 });
 
+workButton.addEventListener("click", () => {
+  tabLinks[2].click();
+});
+contactButton.addEventListener("click", () => {
+  tabLinks[3].click();
+});
 //tabLinks[1].addEventListener("click", () => {
 
 //   divContainer.classList.add("flex-container");
