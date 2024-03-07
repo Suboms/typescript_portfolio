@@ -5,14 +5,17 @@
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
 }
+html {
+  height: 100%;
+  width: 100%;
+}
 #body {
-  background-color: rgb(245, 245, 245);
-  max-width: 1440px;
   margin: 0 auto;
+  height: 100%;
+  width: 100%;
 }
 .container {
   margin: auto;
-  padding: 20px;
   max-width: 100%;
   width: 100%;
   height: 100%;
@@ -22,6 +25,7 @@
   border-radius: 10px;
   display: flex;
   justify-content: center;
+  align-items: center;
   overflow: hidden;
   position: fixed;
   max-width: calc(100% - 100px);
@@ -31,11 +35,8 @@
   transform: translateX(-50%);
   margin-top: 5px;
 }
-.hide-nav {
-  top: -100px;
-}
 .active {
-  background-color: #afafaf;
+  background-color: #e7e7e7;
   padding: 10px 5px;
   border-radius: 10px;
 }
@@ -73,6 +74,7 @@
   color: rgb(15, 15, 15);
   font-weight: 500;
   font-size: 20px;
+  display: block;
 }
 .nav-item a:visited {
   color: rgb(15, 15, 15);
@@ -83,9 +85,14 @@
   display: flex;
   align-items: center;
   padding: 20px;
-  margin: 18% 0;
   flex-flow: row nowrap;
   width: 100%;
+  height: 100%;
+}
+.resume-container{
+  padding: 20px;
+  width: 100%;
+  height: 100%;
 }
 .hero-image {
   width: 250px;
@@ -184,7 +191,8 @@
 }
 
 .tabcontent {
-  display: none ;
+  width: 100%;
+  height: 100%;
   animation: fadeEffect 1s ease-in;
 }
 
@@ -200,10 +208,9 @@
 .menu-icon {
   display: none;
 }
-@media screen and (max-width: 1366px) {
-  .hero {
-    margin: 10% 0;
-  }
+#section-one, #section-two {
+  padding: 0 25px;
+  /* margin-top: 150px; */
 }
 
 @media screen and (max-width: 1200px) {
@@ -316,7 +323,7 @@
 
     margin-left: 50px;
   }
-  .responsive-tabcontent{
+  .responsive-tabcontent {
     margin-left: 250px;
   }
   .responsive-navbar {
@@ -335,7 +342,7 @@
     max-width: 100%;
     transform: none;
   }
-  .navbar-open{
+  .navbar-open {
     width: 250px;
   }
   #closebtn {

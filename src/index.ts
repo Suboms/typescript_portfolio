@@ -66,50 +66,30 @@ function typeWriterPara() {
   }
 }
 
+let sections: { [key: string]: number } = {};
+tabcontents.forEach((element: HTMLElement) => {
+  sections[element.id] = element.offsetTop;
+});
+window.onscroll = () => {
+  let scrollPosition =
+    document.documentElement.scrollTop || document.body.scrollTop;
+  console.log(`Scroll Position: ${scrollPosition}`);
+  for (let i in sections) {
+    console.log(`sections num: ${sections[i]}`);
+
+    if (sections[i] <= scrollPosition) {
+      document.querySelector(".active")?.setAttribute("class", "");
+      document
+        .querySelector("a[href*=" + i + "]")
+        ?.setAttribute("class", "active");
+    }
+  }
+};
 tabLinks.forEach((element: HTMLElement, index: number) => {
   element.addEventListener("click", (e) => {
     e.preventDefault();
-    setActiveSection(index);
   });
 });
-
-function hideSection() {
-  tabcontents = Array.from(
-    document.getElementsByClassName(
-      "tabcontent"
-    ) as HTMLCollectionOf<HTMLElement>
-  );
-  tabcontents.forEach(
-    (element: HTMLElement, index: number, tabcontentsArray: HTMLElement[]) => {
-      tabcontentsArray[index].style.display = "none";
-    }
-  );
-}
-
-let activeIndex = 0;
-
-function setActiveSection(index: number) {
-  activeIndex = index;
-  tabcontents.forEach((content: HTMLElement, contentindex: number) => {
-    content.style.display = contentindex === index ? "block" : "none";
-    tabLinks[contentindex].classList.toggle("active", contentindex === index);
-  });
-}
-
-function hideNav() {
-  let navBarr = navBar;
-
-  window.onscroll = () => {
-    let currentScrollPos: number = window.scrollY;
-
-    if (currentScrollPos > 0) {
-      navBarr.classList.add("hide-nav");
-    } else {
-      navBarr.classList.remove("hide-nav");
-    }
-    currentScrollPos;
-  };
-}
 
 function responsiveWin() {
   const navbar = navBar;
@@ -127,8 +107,6 @@ function closeMenu() {
   });
 }
 
-
-
 menuIcon.addEventListener("click", () => {
   responsiveWin();
 });
@@ -142,6 +120,41 @@ workButton.addEventListener("click", () => {
 contactButton.addEventListener("click", () => {
   tabLinks[3].click();
 });
+
+tabLinks[0].addEventListener("click", () => {
+  tabLinks[0].classList.add("active");
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  typeWriterName();
+
+  tabLinks[0].click();
+});
+
+// let activeIndex = 0;
+// function setActiveSection(index: number) {
+//   activeIndex = index;
+//   tabcontents.forEach((content: HTMLElement, contentindex: number) => {
+//     content.style.display = contentindex === index ? "block" : "none";
+//     tabLinks[contentindex].classList.toggle("active", contentindex === index);
+//   });
+// }
+
+// function hideNav() {
+//   let navBarr = navBar;
+
+//   window.onscroll = () => {
+//     let currentScrollPos: number = window.scrollY;
+
+//     if (currentScrollPos > 0) {
+//       navBarr.classList.add("hide-nav");
+//     } else {
+//       navBarr.classList.remove("hide-nav");
+//     }
+//     currentScrollPos;
+//   };
+// }
+
 //tabLinks[1].addEventListener("click", () => {
 
 //   divContainer.classList.add("flex-container");
@@ -150,10 +163,15 @@ contactButton.addEventListener("click", () => {
 // }
 // });
 
-document.addEventListener("DOMContentLoaded", () => {
-  typeWriterName();
-  hideSection();
-  tabLinks[0].click();
-  hideNav();
-  // addClass();
-});
+// function hideSection() {
+//   tabcontents = Array.from(
+//     document.getElementsByClassName(
+//       "tabcontent"
+//     ) as HTMLCollectionOf<HTMLElement>
+//   );
+//   tabcontents.forEach(
+//     (element: HTMLElement, index: number, tabcontentsArray: HTMLElement[]) => {
+//       tabcontentsArray[index].style.display = "none";
+//     }
+//   );
+// }

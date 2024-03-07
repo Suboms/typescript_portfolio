@@ -1,6 +1,10 @@
+.section-one{
+  /* background-color: #505153; */
+}
 .section-two {
-  margin-top: 6.25pc;
   background-color: rgb(245, 246, 247);
+  height: auto;
+  min-height: 100vh;
 }
 .card {
   background-color: #ffffff; /* White background */
