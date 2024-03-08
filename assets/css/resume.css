@@ -1,14 +1,11 @@
-.section-one{
-  /* background-color: #505153; */
-}
-.section-two {
+/* .section-two {
   background-color: rgb(245, 246, 247);
   height: auto;
   min-height: 100vh;
 }
 .card {
-  background-color: #ffffff; /* White background */
-  border-radius: 10px; /* Rounded corners */
+  background-color: #ffffff; 
+  border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid #cccccc;
   padding: 20px;
@@ -26,7 +23,7 @@
 .header-image {
   width: 124px;
   height: 124px;
-  flex-shrink: 0; /* Prevent image from shrinking */
+  flex-shrink: 0;
 }
 
 .header-image img {
@@ -37,15 +34,15 @@
 }
 
 .user-info {
-  flex: 1; /* Take remaining space */
-  margin-left: 20px; /* Adjust spacing between image and text */
+  flex: 1;
+  margin-left: 20px; 
   word-wrap: break-word;
   word-break: break-word;
 }
 
 .user-info h1,
 .user-info h2 {
-  margin: 0; /* Remove default margin */
+  margin: 0; 
 }
 
 .user-info h1 {
@@ -54,7 +51,7 @@
 }
 
 .user-info h2 {
-  font-size: 1.2rem; /* Adjust font size for title */
+  font-size: 1.2rem;
   font-weight: 500;
 }
 
@@ -316,4 +313,4 @@ hr {
   .back-container {
     display: none;
   }
-}
+} */

@@ -1,19 +1,16 @@
-"use strict";
+import { addWork } from "./works.js";
+import { work_list } from "./works.js";
 const nameSection = document.querySelector(".name-section");
 const textHeader = document.querySelector(".text-header");
 const textPara = document.querySelector(".text-para");
 const contactButtons = document.querySelector(".contact-button");
-const linkList = document.querySelectorAll(".nav-item");
 let tabLinks = Array.from(document.getElementsByClassName("tablinks"));
 let tabcontents = Array.from(document.getElementsByClassName("tabcontent"));
 let navBar = document.querySelector(".navbar");
 let menuIcon = document.querySelector(".menu-icon");
 let closeBtn = document.getElementById("closeBtn");
-let divContainer = document.querySelector(".container");
-let workButtonContainer = document.querySelector(".my-work");
-let contactButtonContainer = document.querySelector(".contact-page");
 let workButton = document.querySelector(".my-work-button");
-let contactButton = document.querySelector(".contact-me");
+let workList = document.querySelector(".workdone-list");
 let nameNum = 0;
 let headerNum = 0;
 let paraNum = 0;
@@ -23,7 +20,6 @@ let paraText = `Passionate web developer specializing in both front-end and
 back-end technologies. Available for freelance projects and eager
 for new opportunities.`;
 let speed = 25;
-let animationPlayed = false;
 function typeWriterName() {
     if (nameNum < nameText.length) {
         nameSection.innerHTML += nameText.charAt(nameNum);
@@ -61,9 +57,7 @@ tabcontents.forEach((element) => {
 window.onscroll = () => {
     var _a, _b;
     let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
-    console.log(`Scroll Position: ${scrollPosition}`);
     for (let i in sections) {
-        console.log(`sections num: ${sections[i]}`);
         if (sections[i] <= scrollPosition) {
             (_a = document.querySelector(".active")) === null || _a === void 0 ? void 0 : _a.setAttribute("class", "");
             (_b = document
@@ -71,7 +65,7 @@ window.onscroll = () => {
         }
     }
 };
-tabLinks.forEach((element, index) => {
+tabLinks.forEach((element) => {
     element.addEventListener("click", (e) => {
         e.preventDefault();
     });
@@ -99,51 +93,72 @@ closeBtn.addEventListener("click", () => {
 workButton.addEventListener("click", () => {
     tabLinks[2].click();
 });
-contactButton.addEventListener("click", () => {
-    tabLinks[3].click();
+const work_done = [
+    {
+        id: 1,
+        title: "My First Work",
+        description: "This is my first work",
+        github_link: "edwesd.com",
+        live_link: "edwesd.com",
+    },
+    {
+        id: 2,
+        title: "My Second Work",
+        description: "This is my second work",
+        github_link: "",
+        live_link: "",
+    },
+    {
+        id: 3,
+        title: "My Third Work",
+        description: "This is my third work",
+        github_link: "",
+        live_link: "",
+    },
+    {
+        id: 4,
+        title: "My Fourth Work",
+        description: "This is my fourth work",
+        github_link: "",
+        live_link: "",
+    },
+    {
+        id: 5,
+        title: "My Fifth Work",
+        description: "This is my fifth work",
+        github_link: "",
+        live_link: "",
+    },
+];
+work_done.forEach((work) => {
+    addWork(work);
 });
-tabLinks[0].addEventListener("click", () => {
-    tabLinks[0].classList.add("active");
-});
-document.addEventListener("DOMContentLoaded", () => {
-    typeWriterName();
-    tabLinks[0].click();
-});
-// let activeIndex = 0;
-// function setActiveSection(index: number) {
-//   activeIndex = index;
-//   tabcontents.forEach((content: HTMLElement, contentindex: number) => {
-//     content.style.display = contentindex === index ? "block" : "none";
-//     tabLinks[contentindex].classList.toggle("active", contentindex === index);
-//   });
-// }
-// function hideNav() {
-//   let navBarr = navBar;
-//   window.onscroll = () => {
-//     let currentScrollPos: number = window.scrollY;
-//     if (currentScrollPos > 0) {
-//       navBarr.classList.add("hide-nav");
-//     } else {
-//       navBarr.classList.remove("hide-nav");
-//     }
-//     currentScrollPos;
-//   };
-// }
-//tabLinks[1].addEventListener("click", () => {
-//   divContainer.classList.add("flex-container");
-// } else {
-//   divContainer.classList.remove("flex-container");
-// }
-// });
-// function hideSection() {
-//   tabcontents = Array.from(
-//     document.getElementsByClassName(
-//       "tabcontent"
-//     ) as HTMLCollectionOf<HTMLElement>
-//   );
-//   tabcontents.forEach(
-//     (element: HTMLElement, index: number, tabcontentsArray: HTMLElement[]) => {
-//       tabcontentsArray[index].style.display = "none";
-//     }
-//   );
-// }
+const addWorkToList = () => {
+    let listHtml = "";
+    work_list.forEach((work, index) => {
+        listHtml += `<li class="workdone-item">
+    <div class="card">
+      <div class="title">
+        <h3 class="work-title>">${work.title}</h3>
+      </div>
+      <div class="description">
+        <p class="work-description">
+          ${work.description}
+        </p>
+      </div>
+      <div class="work-links">
+        <a
+          href="https://${work.github_link}"
+          target="_blank"
+          rel="noopener"
+          class="work-link"
+          >Github Link</a
+        >
+        ${work.live_link ? `<a href="https://${work.live_link}" target="_blank" rel="noopener" class="work-link">Live Link</a>` : ""}
+      </div>
+    </div>
+  </li>`;
+    });
+    workList.innerHTML = listHtml;
+};
+addWorkToList();
