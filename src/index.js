@@ -1,5 +1,5 @@
-import { addWork } from "./works.js";
-import { work_list } from "./works.js";
+import { addWork } from "./works";
+import { work_list } from "./works";
 const nameSection = document.querySelector(".name-section");
 const textHeader = document.querySelector(".text-header");
 const textPara = document.querySelector(".text-para");

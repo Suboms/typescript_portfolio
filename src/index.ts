@@ -189,5 +189,6 @@ const addWorkToList = ()=>{
 
 addWorkToList();
 
-
-
+document.addEventListener("DOMContentLoaded", ()=>{
+  typeWriterName()
+})
