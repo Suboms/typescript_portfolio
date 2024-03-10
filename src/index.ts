@@ -24,16 +24,18 @@ let workList = document.querySelector(".workdone-list") as HTMLOListElement;
 let nameNum: number = 0;
 let headerNum: number = 0;
 let paraNum: number = 0;
-let nameText: string = "Hello! I'm Oladunjoye Olasubomi";
+let nameText: string = `Hello! I'm <em>Oladunjoye Olasubomi</em>`;
 let headerText: string = "A Web Developer based in Lagos, Nigeria.";
 let paraText: string = `Passionate web developer specializing in both front-end and
 back-end technologies. Available for freelance projects and eager
 for new opportunities.`;
 let speed: number = 25;
+let displayText: string = "";
 
 function typeWriterName() {
   if (nameNum < nameText.length) {
-    nameSection.innerHTML += nameText.charAt(nameNum);
+    displayText += nameText[nameNum];
+    nameSection.innerHTML = displayText;
     nameNum++;
     setTimeout(typeWriterName, speed);
   } else {
@@ -62,22 +64,58 @@ function typeWriterPara() {
   }
 }
 
-let sections: { [key: string]: number } = {};
-tabcontents.forEach((element: HTMLElement) => {
-  sections[element.id] = element.offsetTop;
-});
-window.onscroll = () => {
-  let scrollPosition =
-    document.documentElement.scrollTop || document.body.scrollTop;
-  for (let i in sections) {
-    if (sections[i] <= scrollPosition) {
-      document.querySelector(".active")?.setAttribute("class", "");
-      document
-        .querySelector("a[href*=" + i + "]")
-        ?.setAttribute("class", "active");
-    }
-  }
-};
+// let sections: { [key: string]: number } = {};
+// tabcontents.forEach((element: HTMLElement) => {
+//   sections[element.id] = element.offsetTop;
+// });
+// window.onscroll = () => {
+//   let scrollPosition =
+//     document.documentElement.scrollTop || document.body.scrollTop;
+//   for (let i in sections) {
+//     if (sections[i] <= scrollPosition) {
+//       document.querySelector(".active")?.setAttribute("class", "");
+//       document
+//         .querySelector("a[href*=" + i + "]")
+//         ?.setAttribute("class", "active");
+//     }
+//   }
+// };
+
+interface ScrollSpyItem {
+  id: string;
+  offset: number;
+}
+
+function scrollSpy(offset: number = 0, sections: HTMLElement[]) {
+  const items: ScrollSpyItem[] = [];
+
+  sections.forEach((section) => {
+    items.push({ id: section.id, offset });
+  });
+
+  window.addEventListener("scroll", () => {
+    const currentPosition = window.scrollY + offset;
+
+    items.forEach((item) => {
+      const element = document.getElementById(item.id);
+      if (!element) return;
+
+      const elementTop = element.offsetTop;
+      const elementBottom = elementTop + element.clientHeight;
+
+      if (currentPosition >= elementTop && currentPosition <= elementBottom) {
+        console.log(`Element ${item.id} is in view.`);
+        document.querySelector(".active")?.setAttribute("class", "");
+        document
+          .querySelector("a[href*=" + item.id + "]")
+          ?.setAttribute("class", "active");
+      }
+    });
+  });
+}
+
+scrollSpy(100, tabcontents);
+
 tabLinks.forEach((element: HTMLElement) => {
   element.addEventListener("click", (e) => {
     e.preventDefault();
@@ -158,9 +196,9 @@ const work_done: Array<{
 work_done.forEach((work: Work) => {
   addWork(work);
 });
-const addWorkToList = ()=>{
+const addWorkToList = () => {
   let listHtml = "";
-  work_list.forEach((work:Work, index:number) => {
+  work_list.forEach((work: Work, index: number) => {
     listHtml += `<li class="workdone-item">
     <div class="card">
       <div class="title">
@@ -179,16 +217,20 @@ const addWorkToList = ()=>{
           class="work-link"
           >Github Link</a
         >
-        ${work.live_link ? `<a href="https://${work.live_link}" target="_blank" rel="noopener" class="work-link">Live Link</a>` : ""}
+        ${
+          work.live_link
+            ? `<a href="https://${work.live_link}" target="_blank" rel="noopener" class="work-link">Live Link</a>`
+            : ""
+        }
       </div>
     </div>
-  </li>`
+  </li>`;
   });
   workList.innerHTML = listHtml;
-}
+};
 
 addWorkToList();
 
-document.addEventListener("DOMContentLoaded", ()=>{
-  typeWriterName()
-})
+document.addEventListener("DOMContentLoaded", () => {
+  typeWriterName();
+});

@@ -14,15 +14,17 @@ let workList = document.querySelector(".workdone-list");
 let nameNum = 0;
 let headerNum = 0;
 let paraNum = 0;
-let nameText = "Hello! I'm Oladunjoye Olasubomi";
+let nameText = `Hello! I'm <em>Oladunjoye Olasubomi</em>`;
 let headerText = "A Web Developer based in Lagos, Nigeria.";
 let paraText = `Passionate web developer specializing in both front-end and
 back-end technologies. Available for freelance projects and eager
 for new opportunities.`;
 let speed = 25;
+let displayText = "";
 function typeWriterName() {
     if (nameNum < nameText.length) {
-        nameSection.innerHTML += nameText.charAt(nameNum);
+        displayText += nameText[nameNum];
+        nameSection.innerHTML = displayText;
         nameNum++;
         setTimeout(typeWriterName, speed);
     }
@@ -50,21 +52,30 @@ function typeWriterPara() {
         contactButtons.classList.remove("hidden");
     }
 }
-let sections = {};
-tabcontents.forEach((element) => {
-    sections[element.id] = element.offsetTop;
-});
-window.onscroll = () => {
-    var _a, _b;
-    let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
-    for (let i in sections) {
-        if (sections[i] <= scrollPosition) {
-            (_a = document.querySelector(".active")) === null || _a === void 0 ? void 0 : _a.setAttribute("class", "");
-            (_b = document
-                .querySelector("a[href*=" + i + "]")) === null || _b === void 0 ? void 0 : _b.setAttribute("class", "active");
-        }
-    }
-};
+function scrollSpy(offset = 0, sections) {
+    const items = [];
+    sections.forEach((section) => {
+        items.push({ id: section.id, offset });
+    });
+    window.addEventListener("scroll", () => {
+        const currentPosition = window.scrollY + offset;
+        items.forEach((item) => {
+            var _a, _b;
+            const element = document.getElementById(item.id);
+            if (!element)
+                return;
+            const elementTop = element.offsetTop;
+            const elementBottom = elementTop + element.clientHeight;
+            if (currentPosition >= elementTop && currentPosition <= elementBottom) {
+                console.log(`Element ${item.id} is in view.`);
+                (_a = document.querySelector(".active")) === null || _a === void 0 ? void 0 : _a.setAttribute("class", "");
+                (_b = document
+                    .querySelector("a[href*=" + item.id + "]")) === null || _b === void 0 ? void 0 : _b.setAttribute("class", "active");
+            }
+        });
+    });
+}
+scrollSpy(100, tabcontents);
 tabLinks.forEach((element) => {
     element.addEventListener("click", (e) => {
         e.preventDefault();
@@ -154,7 +165,9 @@ const addWorkToList = () => {
           class="work-link"
           >Github Link</a
         >
-        ${work.live_link ? `<a href="https://${work.live_link}" target="_blank" rel="noopener" class="work-link">Live Link</a>` : ""}
+        ${work.live_link
+            ? `<a href="https://${work.live_link}" target="_blank" rel="noopener" class="work-link">Live Link</a>`
+            : ""}
       </div>
     </div>
   </li>`;
