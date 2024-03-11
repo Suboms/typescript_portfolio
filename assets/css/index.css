@@ -142,9 +142,14 @@ html {
 }
 .contact-buttons {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 20px 0;
+}
+.contact-page-button{
+  padding-right: 20px;
+}
+.my-work-button{
+  padding-left: 20px;
 }
 .contact-button {
   padding: 15px 20px;
