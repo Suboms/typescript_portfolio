@@ -12,6 +12,8 @@ let navBar = document.querySelector(".navbar") as HTMLDivElement;
 let menuIcon = document.querySelector(".menu-icon") as HTMLDivElement;
 let closeBtn = document.getElementById("closeBtn") as HTMLAnchorElement;
 let workButton = document.querySelector(".my-work-button") as HTMLButtonElement;
+let expandBtn = document.querySelector(".expand") as HTMLButtonElement;
+let workList = document.querySelector(".workdone-list") as HTMLOListElement;
 
 tabLinks.forEach((element: HTMLElement) => {
   element.addEventListener("click", (e) => {
@@ -52,10 +54,33 @@ closeBtn.addEventListener("click", () => {
 workButton.addEventListener("click", () => {
   tabLinks[2].click();
 });
-
+if (workList.childElementCount > 3){
+  expandBtn.style.display = "inline-block"
+}else{
+  expandBtn.style.display = "none"
+}
+let expanded = false;
+expandBtn.addEventListener("click", () => {
+  const listItems = workList.querySelectorAll(
+    "li:nth-child(n+4"
+  ) as NodeListOf<HTMLElement>;
+  if (!expanded) {
+    listItems.forEach((item) => {
+      item.style.display = "list-item";
+    });
+    expandBtn.textContent = "Show Less";
+    expanded = true;
+  } else {
+    listItems.forEach((item) => {
+      item.style.display = "none";
+    });
+    expandBtn.textContent = "Show More";
+    expanded = false;
+  }
+});
 document.addEventListener("DOMContentLoaded", () => {
   tabLinks[0].click();
   typeWriterName();
   addWorkToList();
-  scrollSpy(100, tabcontents);
+  scrollSpy(200, tabcontents);
 });

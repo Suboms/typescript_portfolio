@@ -10,18 +10,19 @@ const contactButtons = document.querySelector(
 let nameNum: number = 0;
 let headerNum: number = 0;
 let paraNum: number = 0;
-let nameText: string = `Hello! I'm <em>Oladunjoye Olasubomi</em>`;
-let headerText: string = "A Web Developer based in Lagos, Nigeria.";
+let nameText: string = `Hello! I'm <em>Oladunjoye <br>Olasubomi</em>`;
+let headerText: string = "A Web Developer based in <br>Lagos, Nigeria.";
 let paraText: string = `Passionate web developer specializing in both front-end and
 back-end technologies. Available for freelance projects and eager
 for new opportunities.`;
 let speed: number = 25;
-let displayText: string = "";
+let displayNameText: string = "";
+let displayHeaderText:string = "";
 
 export function typeWriterName() {
   if (nameNum < nameText.length) {
-    displayText += nameText[nameNum];
-    nameSection.innerHTML = displayText;
+    displayNameText += nameText[nameNum];
+    nameSection.innerHTML = displayNameText;
     nameNum++;
     setTimeout(typeWriterName, speed);
   } else {
@@ -31,7 +32,8 @@ export function typeWriterName() {
 
 function typeWriterHeader() {
   if (headerNum < headerText.length) {
-    textHeader.innerHTML += headerText.charAt(headerNum);
+    displayHeaderText += headerText[headerNum]
+    textHeader.innerHTML = displayHeaderText;
     headerNum++;
     setTimeout(typeWriterHeader, speed);
   } else {

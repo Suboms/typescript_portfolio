@@ -18,20 +18,6 @@ const work_done = [
         github_link: "github.com/Suboms/Random-Quote-Generator",
         live_link: "random-quote-generator-lac.vercel.app/",
     },
-    {
-        id: 3,
-        title: "My Third Work",
-        description: "This is my third work",
-        github_link: "",
-        live_link: "",
-    },
-    {
-        id: 4,
-        title: "My Fourth Work",
-        description: "This is my fourth work",
-        github_link: "",
-        live_link: "",
-    }
 ];
 work_done.forEach((work) => {
     addWork(work);

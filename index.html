@@ -43,7 +43,11 @@
         <div class="hero">
           <div class="introduction">
             <div class="hero-image">
-              <img src="/assets/img/test.jpg" alt="hero" class="user-image" />
+              <img
+                src="/assets/img/test.jpg"
+                alt="hero"
+                class="user-image"
+                loading="lazy" />
             </div>
             <div class="intro-text">
               <h2 class="name-section"></h2>
@@ -279,45 +283,52 @@
               </h2>
             </div>
             <ol class="workdone-list"></ol>
+            <div class="show-more-container">
+              <button type="button" class="expand">show more</button>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- <section class="section-four tabcontent" id="section-four">
-        <div class="social-links">
-          <ul class="nav-list">
-            <li class="nav-item">
-              <a href="mailto:olasubomi24200201@gmail.com" target="_blank"
-                ><img src="/assets/img/mail.svg" alt="email"
-              /></a>
-            </li>
-            <li class="nav-item">
-              <a
-                rel="noopener"
-                href="https://www.linkedin.com/in/oladunjoye-sulaiman-olasubomi-31b68819b/"
-                target="_blank"
-                ><img src="/assets/img/brand-linkedin.svg" alt="email"
-              /></a>
-            </li>
-            <li class="nav-item">
-              <a
-                href="https://twitter.com/dubsyoflagos"
-                rel="noopener"
-                target="_blank">
-                <img src="/assets/img/brand-twitter.svg" alt="email"
-              /></a>
-            </li>
-            <li class="nav-item">
-              <a
-                href="https://github.com/Suboms"
-                target="_blank"
-                rel="noopener noreferrer"
-                ><img src="/assets/img/brand-github.svg" alt="email"
-              /></a>
-            </li>
-          </ul>
+      <section class="section-four tabcontent" id="section-four">
+        <div class="contact-container">
+          <div class="contact-details">
+            <div class="invite-header">
+              <h1 class="invite">Let's Talk</h1>
+              <p class="invite-text">
+                Have some big Idea or Brand to develop and need Professional
+                help? Then reach out i'd love to hear more about your project
+                and provide help
+              </p>
+            </div>
+            <div class="contact-links">
+              <div class="email-link">
+                <h1>Email</h1>
+                <a href="mailto:olasubomi24200201@gmail.com"
+                  >olasubomi24200201@gmail.com</a
+                >
+              </div>
+              <div class="social-links"></div>
+            </div>
+          </div>
+          <div class="contact-form">
+            <form action="">
+              <div class="inut-container">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" id="name" />
+              </div>
+              <div class="input-container">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  class="form-control" />
+              </div>
+            </form>
+          </div>
         </div>
-      </section> -->
+      </section>
     </div>
     <script type="module" src="/build/index.js"></script>
   </body>
