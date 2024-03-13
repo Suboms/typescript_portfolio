@@ -82,5 +82,5 @@ document.addEventListener("DOMContentLoaded", () => {
   tabLinks[0].click();
   typeWriterName();
   addWorkToList();
-  scrollSpy(200, tabcontents);
+  scrollSpy(250, tabcontents);
 });
