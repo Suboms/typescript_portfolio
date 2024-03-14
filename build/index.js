@@ -86,6 +86,7 @@ expandBtn.addEventListener("click", () => {
     }
 });
 document.addEventListener("DOMContentLoaded", () => {
+    console.log(window.innerWidth, window.innerHeight);
     window.onload = () => {
         tabLinks[0].click();
     };

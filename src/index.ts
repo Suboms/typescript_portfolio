@@ -87,6 +87,7 @@ expandBtn.addEventListener("click", () => {
   }
 });
 document.addEventListener("DOMContentLoaded", () => {
+  console.log(window.innerWidth, window.innerHeight)
   window.onload = () => {
     tabLinks[0].click();
   };
@@ -94,7 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
   typeWriterName();
   addWorkToList();
   scrollSpy(250, tabcontents);
+
 });
+
 
 // let num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 

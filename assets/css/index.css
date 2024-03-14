@@ -116,7 +116,6 @@ html {
   word-break: break-word;
 }
 .name-section {
-  white-space: pre-line;
   font-size: 2.5rem;
   word-spacing: 3px;
   text-align: left;
@@ -126,7 +125,6 @@ html {
   color: #212529;
 }
 .text-header {
-  white-space: pre-line;
   font-size: 2.5rem;
   text-align: left;
   font-variant: small-caps;
@@ -466,7 +464,7 @@ hr {
 .contact-container {
   display: grid;
   grid-template-columns: 50% 50%;
-  height: 100%;
+  height: auto;
 }
 #work-link-one {
   text-transform: capitalize;
@@ -536,7 +534,9 @@ textarea.form-control {
   font-weight: 500;
   color: #212529;
 }
-
+.label{
+  padding: 5px 0;
+}
 #submitBtn{
   background-color: #000;
   color: #fff;
