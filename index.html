@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <title>Oladunjoye Sulaiman Olasubomi</title>
     <link rel="stylesheet" href="/assets/css/index.css" />
   </head>
@@ -304,22 +304,73 @@
                   >olasubomi24200201@gmail.com</a
                 >
               </div>
-              <div class="social-links"></div>
+              <div class="social-links-container">
+                <div class="twitter-link social-links"></div>
+                <div class="telegram-link social-links"></div>
+                <div class="whatsapp-link social-links"></div>
+              </div>
             </div>
           </div>
-          <div class="contact-form">
-            <form action="">
-              <div class="inut-container">
-                <label for="name">Name</label>
+          <div class="contact-form-container">
+            <form action="" method="post" class="contact-form">
+              <div class="input-container">
+                <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" name="name" id="name" />
               </div>
               <div class="input-container">
-                <label for="email">Email</label>
+                <label for="email" class="form-label">Email</label>
                 <input
                   type="email"
                   name="email"
                   id="email"
                   class="form-control" />
+              </div>
+              <div class="input-container">
+                <label for="service" class="form-label"
+                  >What service are you intrested in</label
+                >
+                <select
+                  name="service"
+                  id="service"
+                  class="form-control"
+                  title="Select a service">
+                  <option value="default" selected disabled>
+                    Select a Project Type
+                  </option>
+                  <option value="frontend">Front-End Web Development</option>
+                  <option value="backend">Back-End Web Development</option>
+                </select>
+              </div>
+              <div class="input-container">
+                <label for="budget" class="form-label">Budget</label>
+                <select
+                  name="budget"
+                  id="budget"
+                  class="form-control"
+                  title="Select your budget">
+                  <option value="default" selected disabled>
+                    Select a Budget
+                  </option>
+                  <option value="1000-5000">$1000 - $5000</option>
+                  <option value="5000-10000">$5000 - $10000</option>
+                  <option value="10000-20000">$10000 - $20000</option>
+                  <option value="20000-50000">$20000 - $50000</option>
+                  <option value="50000-100000">$50000 - $100000</option>
+                </select>
+              </div>
+              <div class="input-container">
+                <label for="message" class="form-label">Message</label>
+                <textarea
+                  name="message"
+                  id="message"
+                  class="form-control"></textarea>
+              </div>
+              <div class="input-container">
+                <input
+                  type="submit"
+                  value="Submit"
+                  class="submit-btn form-control"
+                  id="submitBtn" />
               </div>
             </form>
           </div>

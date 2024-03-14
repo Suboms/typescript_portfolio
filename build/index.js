@@ -1,3 +1,12 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 import { addWorkToList } from "./works.js";
 import { scrollSpy } from "./scrollspy.js";
 import { typeWriterName } from "./typewriter.js";
@@ -42,12 +51,16 @@ menuIcon.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
     closeMenu();
 });
-workButton.addEventListener("click", () => {
-    tabLinks[2].click();
-});
-contactMeBtn.addEventListener("click", () => {
-    tabLinks[3].click();
-});
+function buttonClick() {
+    return __awaiter(this, void 0, void 0, function* () {
+        workButton.addEventListener("click", () => {
+            tabLinks[2].click();
+        });
+        contactMeBtn.addEventListener("click", () => {
+            tabLinks[3].click();
+        });
+    });
+}
 if (workList.childElementCount > 3) {
     expandBtn.style.display = "inline-block";
 }
@@ -73,16 +86,17 @@ expandBtn.addEventListener("click", () => {
     }
 });
 document.addEventListener("DOMContentLoaded", () => {
-    tabLinks[0].click();
+    window.onload = () => {
+        tabLinks[0].click();
+    };
+    buttonClick();
     typeWriterName();
     addWorkToList();
     scrollSpy(250, tabcontents);
 });
-let num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-for (let i = 0; i < num.length; i++) {
-    num[i] = num[i] * 2;
-}
-console.log(num);
-// num.forEach((n) => {
-//   console.log(n*2);
-// });
+// let num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const multiplier = num.map((number) =>{
+//   return number * 2;
+// })
+// console.log(multiplier);
+// console.log(num);

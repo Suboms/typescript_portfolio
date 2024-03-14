@@ -53,13 +53,15 @@ menuIcon.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
   closeMenu();
 });
+async function buttonClick() {
+  workButton.addEventListener("click", () => {
+    tabLinks[2].click();
+  });
+  contactMeBtn.addEventListener("click", () => {
+    tabLinks[3].click();
+  });
+}
 
-workButton.addEventListener("click", () => {
-  tabLinks[2].click();
-});
-contactMeBtn.addEventListener("click", () => {
-  tabLinks[3].click();
-});
 if (workList.childElementCount > 3) {
   expandBtn.style.display = "inline-block";
 } else {
@@ -85,19 +87,19 @@ expandBtn.addEventListener("click", () => {
   }
 });
 document.addEventListener("DOMContentLoaded", () => {
-  tabLinks[0].click();
+  window.onload = () => {
+    tabLinks[0].click();
+  };
+  buttonClick();
   typeWriterName();
   addWorkToList();
   scrollSpy(250, tabcontents);
 });
 
+// let num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-
-let num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-for(let i=0; i<num.length; i++){
- num[i] = num[i]*2;
-}
-console.log(num);
-// num.forEach((n) => {
-//   console.log(n*2);
-// });
+// const multiplier = num.map((number) =>{
+//   return number * 2;
+// })
+// console.log(multiplier);
+// console.log(num);

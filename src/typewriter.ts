@@ -19,7 +19,7 @@ let speed: number = 25;
 let displayNameText: string = "";
 let displayHeaderText:string = "";
 
-export function typeWriterName() {
+export async function typeWriterName() {
   if (nameNum < nameText.length) {
     displayNameText += nameText[nameNum];
     nameSection.innerHTML = displayNameText;
@@ -30,7 +30,7 @@ export function typeWriterName() {
   }
 }
 
-function typeWriterHeader() {
+async function typeWriterHeader() {
   if (headerNum < headerText.length) {
     displayHeaderText += headerText[headerNum]
     textHeader.innerHTML = displayHeaderText;
@@ -41,7 +41,7 @@ function typeWriterHeader() {
   }
 }
 
-function typeWriterPara() {
+async function typeWriterPara() {
   if (paraNum < paraText.length) {
     textPara.innerHTML += paraText.charAt(paraNum);
     paraNum++;

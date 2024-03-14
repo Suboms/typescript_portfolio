@@ -1,3 +1,12 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 let workList = document.querySelector(".workdone-list");
 const work_list = [];
 function addWork(work) {
@@ -23,7 +32,7 @@ work_done.forEach((work) => {
     addWork(work);
 });
 work_list.sort((a, b) => b.id - a.id);
-export const addWorkToList = () => {
+export const addWorkToList = () => __awaiter(void 0, void 0, void 0, function* () {
     let listHtml = "";
     work_list.forEach((work, index) => {
         listHtml += `<li class="workdone-item">
@@ -52,4 +61,4 @@ export const addWorkToList = () => {
   </li>`;
     });
     workList.innerHTML = listHtml;
-};
+});

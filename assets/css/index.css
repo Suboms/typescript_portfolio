@@ -466,6 +466,7 @@ hr {
 .contact-container {
   display: grid;
   grid-template-columns: 50% 50%;
+  height: 100%;
 }
 #work-link-one {
   text-transform: capitalize;
@@ -483,6 +484,76 @@ hr {
   transition: all 0.3s ease;
   margin-left: 10px;
 }
+.contact-details{
+  padding: 20px 67.5px 20px 30px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.contact-form-container {
+  padding: 20px 30px 20px 67.5px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.contact-form {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.input-container{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 1.3rem;
+  border: none;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  outline: none;
+  color: #212529;
+  font-weight: 500;
+  line-height: 1.5;
+  resize: none;
+}
+textarea.form-control {
+  height: 250px;
+}
+.form-label {
+  padding: 5px 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #212529;
+}
+
+#submitBtn{
+  background-color: #000;
+  color: #fff;
+
+}
+.invite-header{
+  padding: 30px;
+}
+.contact-links{
+  padding: 30px;
+}
 .active {
   text-decoration: underline !important;
 }
+
+/* @media screen and (max-width:800px){
+  .hero{
+    flex-direction: column;
+  }
+} */

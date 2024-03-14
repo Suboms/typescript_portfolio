@@ -42,7 +42,7 @@ work_done.forEach((work: Work) => {
 });
 work_list.sort((a, b) => b.id - a.id);
 
-export const addWorkToList = () => {
+export const addWorkToList = async() => {
   let listHtml = "";
   work_list.forEach((work: Work, index: number) => {
     listHtml += `<li class="workdone-item">

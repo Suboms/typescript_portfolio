@@ -3,7 +3,7 @@ interface ScrollSpyItem {
   offset: number;
 }
 
-export function scrollSpy(offset: number = 0, sections: HTMLElement[]) {
+export async function scrollSpy(offset: number = 0, sections: HTMLElement[]) {
   const items: ScrollSpyItem[] = [];
 
   sections.forEach((section) => {
