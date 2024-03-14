@@ -78,3 +78,11 @@ document.addEventListener("DOMContentLoaded", () => {
     addWorkToList();
     scrollSpy(250, tabcontents);
 });
+let num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+for (let i = 0; i < num.length; i++) {
+    num[i] = num[i] * 2;
+}
+console.log(num);
+// num.forEach((n) => {
+//   console.log(n*2);
+// });
