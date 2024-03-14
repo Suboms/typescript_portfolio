@@ -6,7 +6,8 @@ let tabcontents = Array.from(document.getElementsByClassName("tabcontent"));
 let navBar = document.querySelector(".navbar");
 let menuIcon = document.querySelector(".menu-icon");
 let closeBtn = document.getElementById("closeBtn");
-let workButton = document.querySelector(".my-work-button");
+let workButton = document.querySelector(".check-work-button");
+let contactMeBtn = document.querySelector(".contact-me");
 let expandBtn = document.querySelector(".expand");
 let workList = document.querySelector(".workdone-list");
 tabLinks.forEach((element) => {
@@ -43,6 +44,9 @@ closeBtn.addEventListener("click", () => {
 });
 workButton.addEventListener("click", () => {
     tabLinks[2].click();
+});
+contactMeBtn.addEventListener("click", () => {
+    tabLinks[3].click();
 });
 if (workList.childElementCount > 3) {
     expandBtn.style.display = "inline-block";

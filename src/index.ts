@@ -11,7 +11,10 @@ let tabcontents = Array.from(
 let navBar = document.querySelector(".navbar") as HTMLDivElement;
 let menuIcon = document.querySelector(".menu-icon") as HTMLDivElement;
 let closeBtn = document.getElementById("closeBtn") as HTMLAnchorElement;
-let workButton = document.querySelector(".my-work-button") as HTMLButtonElement;
+let workButton = document.querySelector(
+  ".check-work-button"
+) as HTMLButtonElement;
+let contactMeBtn = document.querySelector(".contact-me") as HTMLButtonElement;
 let expandBtn = document.querySelector(".expand") as HTMLButtonElement;
 let workList = document.querySelector(".workdone-list") as HTMLOListElement;
 
@@ -54,10 +57,13 @@ closeBtn.addEventListener("click", () => {
 workButton.addEventListener("click", () => {
   tabLinks[2].click();
 });
-if (workList.childElementCount > 3){
-  expandBtn.style.display = "inline-block"
-}else{
-  expandBtn.style.display = "none"
+contactMeBtn.addEventListener("click", () => {
+  tabLinks[3].click();
+});
+if (workList.childElementCount > 3) {
+  expandBtn.style.display = "inline-block";
+} else {
+  expandBtn.style.display = "none";
 }
 let expanded = false;
 expandBtn.addEventListener("click", () => {

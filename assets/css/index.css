@@ -461,9 +461,25 @@ hr {
   outline: none;
   border-radius: 10px;
 }
-.contact-container{
+.contact-container {
   display: grid;
   grid-template-columns: 50% 50%;
+}
+#work-link-one {
+  text-transform: capitalize;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+}
+#work-link-two {
+  text-transform: capitalize;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 10px;
 }
 .active {
   text-decoration: underline !important;
