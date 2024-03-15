@@ -4,7 +4,7 @@ const nameSection = document.querySelector(
 const textHeader = document.querySelector(".text-header") as HTMLHeadingElement;
 const textPara = document.querySelector(".text-para") as HTMLParagraphElement;
 const contactButtons = document.querySelector(
-  ".contact-button"
+  ".contact-buttons"
 ) as HTMLDivElement;
 
 let nameNum: number = 0;
@@ -48,6 +48,6 @@ async function typeWriterPara() {
 
     setTimeout(typeWriterPara, speed);
   } else {
-    contactButtons.classList.remove("hidden");
+    contactButtons.style.display = "flex";
   }
 }

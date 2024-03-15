@@ -19,6 +19,7 @@ let workButton = document.querySelector(".check-work-button");
 let contactMeBtn = document.querySelector(".contact-me");
 let expandBtn = document.querySelector(".expand");
 let workList = document.querySelector(".workdone-list");
+let selectOption = document.querySelectorAll(".select-option");
 tabLinks.forEach((element) => {
     element.addEventListener("click", (e) => {
         e.preventDefault();
@@ -85,8 +86,17 @@ expandBtn.addEventListener("click", () => {
         expanded = false;
     }
 });
+selectOption.forEach((element) => {
+    element.addEventListener("change", () => {
+        if (element.selectedIndex !== 0) {
+            element.style.color = "#212529";
+        }
+        else {
+            element.style.color = "#4f5255ad";
+        }
+    });
+});
 document.addEventListener("DOMContentLoaded", () => {
-    console.log(window.innerWidth, window.innerHeight);
     window.onload = () => {
         tabLinks[0].click();
     };
@@ -95,9 +105,3 @@ document.addEventListener("DOMContentLoaded", () => {
     addWorkToList();
     scrollSpy(250, tabcontents);
 });
-// let num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-// const multiplier = num.map((number) =>{
-//   return number * 2;
-// })
-// console.log(multiplier);
-// console.log(num);

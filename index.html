@@ -294,20 +294,42 @@
               <p class="invite-text">
                 Have some big Idea or Brand to develop and need Professional
                 help? Then reach out i'd love to hear more about your project
-                and provide help
+                and provide help.
               </p>
             </div>
             <div class="contact-links">
               <div class="email-link">
-                <h1>Email</h1>
+                <h3 class="email-header">Email</h3>
                 <a href="mailto:olasubomi24200201@gmail.com"
                   >olasubomi24200201@gmail.com</a
                 >
               </div>
               <div class="social-links-container">
-                <div class="twitter-link social-links"></div>
-                <div class="telegram-link social-links"></div>
-                <div class="whatsapp-link social-links"></div>
+                <h3 class="socials-header">Socials</h3>
+                <div class="twitter-link social-links">
+                  <a
+                    href="https://twitter.com/dubsyoflagos"
+                    target="_blank"
+                    rel="noopener"
+                    >Twitter</a
+                  >
+                </div>
+                <div class="telegram-link social-links">
+                  <a
+                    href="https://t.me/manwhofelltoearth"
+                    target="_blank"
+                    rel="noopener"
+                    >Telegram</a
+                  >
+                </div>
+                <div class="whatsapp-link social-links">
+                  <a
+                    href="https://wa.me/2348101506405"
+                    target="_blank"
+                    rel="noopener"
+                    >WhatsApp</a
+                  >
+                </div>
               </div>
             </div>
           </div>
@@ -322,7 +344,8 @@
                     type="text"
                     class="form-control"
                     name="name"
-                    id="name" />
+                    id="name"
+                    required />
                 </div>
               </div>
 
@@ -335,7 +358,8 @@
                     type="email"
                     name="email"
                     id="email"
-                    class="form-control" />
+                    class="form-control"
+                    required />
                 </div>
               </div>
 
@@ -349,8 +373,9 @@
                   <select
                     name="service"
                     id="service"
-                    class="form-control"
-                    title="Select a service">
+                    class="form-control select-option"
+                    title="Select a service"
+                    required>
                     <option value="default" selected disabled>
                       Select a Project Type
                     </option>
@@ -368,8 +393,9 @@
                   <select
                     name="budget"
                     id="budget"
-                    class="form-control"
-                    title="Select your budget">
+                    class="form-control select-option"
+                    title="Select your budget"
+                    required>
                     <option value="default" selected disabled>
                       Select a Budget
                     </option>
@@ -383,9 +409,7 @@
               </div>
 
               <div class="input-container">
-                <div class="label">
-                  
-                </div>
+                <div class="label"></div>
                 <div class="input">
                   <label for="message" class="form-label">Message</label>
                   <textarea

@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const nameSection = document.querySelector(".name-section");
 const textHeader = document.querySelector(".text-header");
 const textPara = document.querySelector(".text-para");
-const contactButtons = document.querySelector(".contact-button");
+const contactButtons = document.querySelector(".contact-buttons");
 let nameNum = 0;
 let headerNum = 0;
 let paraNum = 0;
@@ -56,7 +56,7 @@ function typeWriterPara() {
             setTimeout(typeWriterPara, speed);
         }
         else {
-            contactButtons.classList.remove("hidden");
+            contactButtons.style.display = "flex";
         }
     });
 }

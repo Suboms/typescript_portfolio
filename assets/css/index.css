@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +6,8 @@
   min-height: 0;
   min-width: 0;
   scroll-behavior: smooth;
-  font-family: "Montserrat", sans-serif;
-  
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
 }
 html {
   height: 100%;
@@ -127,7 +127,6 @@ html {
 .text-header {
   font-size: 2.5rem;
   text-align: left;
-  font-variant: small-caps;
   font-weight: 600;
   line-height: 1.2;
   color: #212529;
@@ -141,7 +140,7 @@ html {
   color: #212529;
 }
 .contact-buttons {
-  display: flex;
+  display: none;
   align-items: center;
   padding: 20px 0;
 }
@@ -525,6 +524,9 @@ hr {
   line-height: 1.5;
   resize: none;
 }
+.form-control.select-option{
+  color: #4f5255ad;
+}
 textarea.form-control {
   height: 250px;
 }
@@ -547,6 +549,39 @@ textarea.form-control {
 }
 .contact-links{
   padding: 30px;
+}
+.email-link, .social-links-container{
+  padding: 20px 0;
+}
+.socials-header, .email-header{
+  margin: 15px 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.social-links{
+  padding: 10px 0;
+}
+.social-links a{
+  color: #212529;
+  text-decoration-color: rgba(169, 169, 169, 0.726);
+  font-size: 1rem;
+  font-weight: 500;
+}
+.email-link a{
+  color: #212529;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.invite{
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 15px 0;
+}
+.invite-text{
+  font-size: 20px;
+  font-weight: 400;
+  padding-right: 200px;
 }
 .active {
   text-decoration: underline !important;
