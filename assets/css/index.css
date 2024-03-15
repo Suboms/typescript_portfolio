@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -481,7 +482,7 @@ hr {
   transition: all 0.3s ease;
   margin-left: 10px;
 }
-.contact-details{
+.contact-details {
   padding: 20px 67.5px 20px 30px;
   display: flex;
   flex-flow: column nowrap;
@@ -505,7 +506,7 @@ hr {
   display: flex;
   flex-direction: column;
 }
-.input-container{
+.input-container {
   display: flex;
   flex-direction: column;
   padding: 10px 0;
@@ -524,7 +525,7 @@ hr {
   line-height: 1.5;
   resize: none;
 }
-.form-control.select-option{
+.form-control.select-option {
   color: #4f5255ad;
 }
 textarea.form-control {
@@ -536,49 +537,50 @@ textarea.form-control {
   font-weight: 500;
   color: #212529;
 }
-.label{
+.label {
   padding: 5px 0;
 }
-#submitBtn{
+#submitBtn {
   background-color: #000;
   color: #fff;
-
 }
-.invite-header{
+.invite-header {
   padding: 30px;
 }
-.contact-links{
+.contact-links {
   padding: 30px;
 }
-.email-link, .social-links-container{
+.email-link,
+.social-links-container {
   padding: 20px 0;
 }
-.socials-header, .email-header{
+.socials-header,
+.email-header {
   margin: 15px 0;
   font-size: 2rem;
   font-weight: 700;
 }
-.social-links{
+.social-links {
   padding: 10px 0;
 }
-.social-links a{
+.social-links a {
   color: #212529;
   text-decoration-color: rgba(169, 169, 169, 0.726);
   font-size: 1rem;
   font-weight: 500;
 }
-.email-link a{
+.email-link a {
   color: #212529;
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 500;
 }
-.invite{
+.invite {
   font-size: 4rem;
   font-weight: 700;
   margin: 15px 0;
 }
-.invite-text{
+.invite-text {
   font-size: 20px;
   font-weight: 400;
   padding-right: 200px;
@@ -587,8 +589,79 @@ textarea.form-control {
   text-decoration: underline !important;
 }
 
-/* @media screen and (max-width:800px){
-  .hero{
+@media screen and (max-width: 800px) {
+  .navbar {
+    bottom: 0;
+  }
+  .hero {
     flex-direction: column;
   }
-} */
+  .introduction {
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 100%;
+    max-height: 35%;
+  }
+  .hero-image {
+    width: 30%;
+    padding-right: 10px;
+  }
+  .intro-text {
+    width: 100%;
+    padding-left: 10px;
+  }
+  .contact-wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(1px, 50%) 1fr;
+    align-items: center;
+  }
+  .text-header {
+    font-size: 2rem;
+  }
+  .text-para {
+    font-size: 1.2rem;
+  }
+  .contact-me,
+  .check-work-button {
+    font-size: 0.8rem;
+  }
+  .contact {
+    display: none;
+  }
+  .contact-header,
+  .tools-header,
+  .education-header,
+  .about-me-header,
+  .work-experience-header {
+    font-size: 0.8rem;
+  }
+  .tools-list li, .about-text {
+    font-size: 1rem;
+  }
+  .school-name, .course, .qualification-level, .year-awarded, .job-title {
+    font-size: 0.9rem;
+  }
+  .course{
+    display: block;
+  }
+  .company-name, .job-title, .job-duration {
+    font-size: 1rem;
+  }
+  .job-list li {
+    font-size: 1rem;
+  }
+  .main {
+    display: flex;
+    flex-direction: column;
+  }
+  .cta-header{
+    font-size: 1.3rem;
+  }
+  .work-title{
+    font-size: 1rem;
+  }
+  .work-description{
+    font-size: 0.9rem;
+  }
+}

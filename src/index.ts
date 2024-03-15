@@ -65,11 +65,13 @@ async function buttonClick() {
   });
 }
 
-if (workList.childElementCount > 3) {
-  expandBtn.style.display = "inline-block";
-} else {
-  expandBtn.style.display = "none";
-}
+const toggleExpandBtn = () => {
+  if (workList.childElementCount > 3) {
+    expandBtn.style.display = "block";
+  } else {
+    expandBtn.style.display = "none";
+  }
+};
 let expanded = false;
 expandBtn.addEventListener("click", () => {
   const listItems = workList.querySelectorAll(
@@ -93,9 +95,9 @@ expandBtn.addEventListener("click", () => {
 selectOption.forEach((element: HTMLSelectElement) => {
   element.addEventListener("change", () => {
     if (element.selectedIndex !== 0) {
-      element.style.color = "#212529"
+      element.style.color = "#212529";
     } else {
-      element.style.color = "#4f5255ad"
+      element.style.color = "#4f5255ad";
     }
   });
 });
@@ -107,7 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
   buttonClick();
   typeWriterName();
   addWorkToList();
+  toggleExpandBtn();
   scrollSpy(250, tabcontents);
 });
-
-
