@@ -595,32 +595,38 @@ textarea.form-control {
   }
   .hero {
     flex-direction: column;
+    justify-content: unset;
   }
   .introduction {
     flex-flow: row nowrap;
     align-items: center;
     width: 100%;
-    max-height: 35%;
+    max-height: 20%;
   }
   .hero-image {
-    width: 30%;
     padding-right: 10px;
+  }
+  .name-section {
+    font-size: 1.3rem;
   }
   .intro-text {
     width: 100%;
     padding-left: 10px;
   }
+  .text-content {
+    width: 100%;
+  }
   .contact-wrapper {
     width: 100%;
-    display: grid;
-    grid-template-columns: minmax(1px, 50%) 1fr;
     align-items: center;
+    justify-content: unset;
+    padding-top: 12.5pc;
   }
   .text-header {
-    font-size: 2rem;
+    font-size: 1.3rem;
   }
   .text-para {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .contact-me,
   .check-work-button {
@@ -636,32 +642,43 @@ textarea.form-control {
   .work-experience-header {
     font-size: 0.8rem;
   }
-  .tools-list li, .about-text {
-    font-size: 1rem;
+  .tools-list li,
+  .about-text {
+    font-size: 0.8rem;
   }
-  .school-name, .course, .qualification-level, .year-awarded, .job-title {
+  .school-name,
+  .course,
+  .qualification-level,
+  .year-awarded,
+  .job-title {
     font-size: 0.9rem;
   }
-  .course{
+  .course {
     display: block;
   }
-  .company-name, .job-title, .job-duration {
+  .company-name,
+  .job-title,
+  .job-duration {
     font-size: 1rem;
   }
   .job-list li {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   .main {
     display: flex;
     flex-direction: column;
   }
-  .cta-header{
+  .cta-header {
     font-size: 1.3rem;
   }
-  .work-title{
+  .work-title {
     font-size: 1rem;
   }
-  .work-description{
+  .work-description {
     font-size: 0.9rem;
+  }
+  .contact-buttons {
+    padding: 10px 0;
+    width: 100%;
   }
 }
