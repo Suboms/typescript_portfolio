@@ -1,5 +1,5 @@
-let workList = document.querySelector(".workdone-list") as HTMLOListElement; 
- interface Work {
+let workList = document.querySelector(".workdone-list") as HTMLOListElement;
+interface Work {
   id: number;
   title: string;
   description: string;
@@ -7,12 +7,11 @@ let workList = document.querySelector(".workdone-list") as HTMLOListElement;
   live_link?: string;
 }
 
+const work_list: Work[] = [];
 
-const work_list:Work[] = []
-
-function addWork(work:Work):Work[]{
-    work_list.push(work)
-    return work_list
+function addWork(work: Work): Work[] {
+  work_list.push(work);
+  return work_list;
 }
 
 const work_done: Array<{
@@ -25,13 +24,15 @@ const work_done: Array<{
   {
     id: 1,
     title: "Data Generation and Export Tool",
-    description: 'The "Data Generation and Export Tool" is a versatile command-line application built with Django and various Python libraries and modules. Its primary objective is to simplify the process of creating a database model, populating it with synthetic data in bulk, and then exporting this data into CSV and Excel files for streamlined data analysis.',
+    description:
+      'The "Data Generation and Export Tool" is a versatile command-line application built with Django and various Python libraries and modules. Its primary objective is to simplify the process of creating a database model, populating it with synthetic data in bulk, and then exporting this data into CSV and Excel files for streamlined data analysis.',
     github_link: "github.com/Suboms/data_analysis",
   },
   {
     id: 2,
     title: "Quote Generator App",
-    description: "Random Quote Generator app, a sleek and efficient tool built with HTML, CSS, JavaScript, and Fetch API technology. This application simplifies the process of fetching random quotes, providing users with a seamless and intuitive experience. With just a click, users can generate inspiring quotes instantly. The minimalist design ensures ease of use, while the Fetch API integration ensures real-time updates from external sources",
+    description:
+      "Random Quote Generator app, a sleek and efficient tool built with HTML, CSS, JavaScript, and Fetch API technology. This application simplifies the process of fetching random quotes, providing users with a seamless and intuitive experience. With just a click, users can generate inspiring quotes instantly. The minimalist design ensures ease of use, while the Fetch API integration ensures real-time updates from external sources",
     github_link: "github.com/Suboms/Random-Quote-Generator",
     live_link: "random-quote-generator-lac.vercel.app/",
   },
@@ -40,9 +41,13 @@ const work_done: Array<{
 work_done.forEach((work: Work) => {
   addWork(work);
 });
+if (work_list.length > 6){
+  let elementsToRemove = work_list.length - 6
+  work_list.splice(0, elementsToRemove)
+}
 work_list.sort((a, b) => b.id - a.id);
 
-export const addWorkToList = async() => {
+export const addWorkToList = async () => {
   let listHtml = "";
   work_list.forEach((work: Work, index: number) => {
     listHtml += `<li class="workdone-item">

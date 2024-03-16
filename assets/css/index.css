@@ -366,7 +366,7 @@ hr {
   word-break: break-word;
 }
 #section-three {
-  background-color: rgba(199, 206, 217, 0.45);
+  background-color:  rgba(61,61,61, 0.15);
   height: auto;
 }
 .work-container {
@@ -389,7 +389,7 @@ hr {
 .cta-header {
   font-size: 25px;
   text-transform: capitalize;
-  font-weight: 500;
+  font-weight: 600;
 }
 .workdone-list {
   padding: 20px 0 0;
@@ -441,6 +441,9 @@ hr {
   background-color: #2b2925;
 }
 .workdone-list li:nth-child(n + 4) {
+  display: none;
+}
+.workdone-list li:nth-child(n + 8) {
   display: none;
 }
 .show-more-container {

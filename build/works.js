@@ -31,6 +31,10 @@ const work_done = [
 work_done.forEach((work) => {
     addWork(work);
 });
+if (work_list.length > 6) {
+    let elementsToRemove = work_list.length - 6;
+    work_list.splice(0, elementsToRemove);
+}
 work_list.sort((a, b) => b.id - a.id);
 export const addWorkToList = () => __awaiter(void 0, void 0, void 0, function* () {
     let listHtml = "";
