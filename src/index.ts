@@ -102,6 +102,9 @@ selectOption.forEach((element: HTMLSelectElement) => {
   });
 });
 
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
   window.onload = () => {
     tabLinks[0].click();
