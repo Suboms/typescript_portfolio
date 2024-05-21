@@ -7,8 +7,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-export function scrollSpy(offset = 0, sections) {
-    return __awaiter(this, void 0, void 0, function* () {
+export function scrollSpy() {
+    return __awaiter(this, arguments, void 0, function* (offset = 0, sections) {
         const items = [];
         sections.forEach((section) => {
             items.push({ id: section.id, offset });

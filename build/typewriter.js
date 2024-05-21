@@ -16,47 +16,41 @@ let headerNum = 0;
 let paraNum = 0;
 let nameText = `Hello! I'm <em>Oladunjoye <br>Olasubomi</em>`;
 let headerText = "A Web Developer based in <br>Lagos, Nigeria.";
-let paraText = `Passionate web developer specializing in both front-end and
-back-end technologies. Available for freelance projects and eager
-for new opportunities.`;
+let paraText = `Web developer specializing in front-end and back-end. Available for freelance projects and new opportunities.`;
 let speed = 25;
 let displayNameText = "";
 let displayHeaderText = "";
 export function typeWriterName() {
     return __awaiter(this, void 0, void 0, function* () {
-        if (nameNum < nameText.length) {
-            displayNameText += nameText[nameNum];
-            nameSection.innerHTML = displayNameText;
-            nameNum++;
-            setTimeout(typeWriterName, speed);
-        }
-        else {
-            setTimeout(typeWriterHeader, speed);
-        }
+        nameSection.innerHTML = nameText;
+        textHeader.innerHTML = headerText;
+        textPara.innerHTML = paraText;
+        contactButtons.style.display = "flex";
+        // if (nameNum < nameText.length) {
+        //   displayNameText += nameText[nameNum];
+        //   nameSection.innerHTML = displayNameText;
+        //   nameNum++;
+        //   setTimeout(typeWriterName, speed);
+        // } else {
+        //   setTimeout(typeWriterHeader, speed);
+        // }
     });
 }
-function typeWriterHeader() {
-    return __awaiter(this, void 0, void 0, function* () {
-        if (headerNum < headerText.length) {
-            displayHeaderText += headerText[headerNum];
-            textHeader.innerHTML = displayHeaderText;
-            headerNum++;
-            setTimeout(typeWriterHeader, speed);
-        }
-        else {
-            setTimeout(typeWriterPara, speed);
-        }
-    });
-}
-function typeWriterPara() {
-    return __awaiter(this, void 0, void 0, function* () {
-        if (paraNum < paraText.length) {
-            textPara.innerHTML += paraText.charAt(paraNum);
-            paraNum++;
-            setTimeout(typeWriterPara, speed);
-        }
-        else {
-            contactButtons.style.display = "flex";
-        }
-    });
-}
+// async function typeWriterHeader() {
+//   if (headerNum < headerText.length) {
+//     displayHeaderText += headerText[headerNum]
+//     textHeader.innerHTML = displayHeaderText;
+//     headerNum++;
+//     setTimeout(typeWriterHeader, speed);
+//   } else {
+//     setTimeout(typeWriterPara, speed);
+//   }
+// }
+// async function typeWriterPara() {
+//   if (paraNum < paraText.length) {
+//     textPara.innerHTML += paraText.charAt(paraNum);
+//     paraNum++;
+//     setTimeout(typeWriterPara, speed);
+//   } else {
+//   }
+// }

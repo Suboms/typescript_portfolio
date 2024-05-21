@@ -36,6 +36,13 @@ const work_done: Array<{
     github_link: "github.com/Suboms/Random-Quote-Generator",
     live_link: "random-quote-generator-lac.vercel.app/",
   },
+  {
+    id: 3,
+    title:"Hive",
+    description:" Hive, a streamlined video communication app crafted with ReactJS. Hive simplifies virtual collaboration with seamless VoIP for voice calls and dynamic video conferencing. Enjoy effortless communication via instant messaging and integrated email management, alongside robust collaboration tools like document and screen sharing",
+    github_link:"github.com/DarkShadow77/Hive",
+    live_link:"hive-seven-sigma.vercel.app",
+  }
 ];
 
 work_done.forEach((work: Work) => {
