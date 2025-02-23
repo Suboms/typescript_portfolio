@@ -38,25 +38,41 @@ const work_done: Array<{
   },
   {
     id: 3,
-    title:"Hive",
-    description:" Hive, a streamlined video communication app crafted with ReactJS. Hive simplifies virtual collaboration with seamless VoIP for voice calls and dynamic video conferencing. Enjoy effortless communication via instant messaging and integrated email management, alongside robust collaboration tools like document and screen sharing",
-    github_link:"github.com/DarkShadow77/Hive",
-    live_link:"hive-seven-sigma.vercel.app",
-  }
+    title: "Hive",
+    description:
+      " Hive is a collaborative final project developed using ReactJS during a training program. It streamlines virtual communication with VoIP voice calls, video conferencing, instant messaging, and email management. The app also features document and screen sharing, designed to enhance teamwork and productivity.",
+    github_link: "github.com/DarkShadow77/Hive",
+    live_link: "hive-seven-sigma.vercel.app",
+  },
+  {
+    id: 4,
+    title: "DataGen Api",
+    description:
+      "DataGen API is a robust tool designed to generate dynamic, randomized mock data tailored to specific use cases. By utilizing a flexible query parameter, users can request simulated data for various types, such as Person, Product, or Weather, making it ideal for testing, development, and prototyping. This API enables developers to quickly integrate realistic data into their workflows, ensuring a seamless and efficient development process.",
+    github_link: "github.com/Suboms/random-data",
+  },
+  {
+    id: 5,
+    title: "Blog Api",
+    description:
+      "BlogAPI is a powerful RESTful API designed for managing and interacting with blog content, built using Django Rest Framework. This API enables seamless creation, retrieval, updating, and deletion of blog posts, as well as managing user authentication and authorization.",
+    github_link: "github.com/Suboms/Blog-API",
+  },
+  {id:6,title:"Simple Crud",description:"A simple Create Read Update Delete (CRUD) application for a person model", github_link:"github.com/Suboms/BasicCrud"}
 ];
 
 work_done.forEach((work: Work) => {
   addWork(work);
 });
-if (work_list.length > 6){
-  let elementsToRemove = work_list.length - 6
-  work_list.splice(0, elementsToRemove)
+if (work_list.length > 10) {
+  let elementsToRemove = work_list.length - 10;
+  work_list.splice(0, elementsToRemove);
 }
 work_list.sort((a, b) => b.id - a.id);
 
 export const addWorkToList = async () => {
   let listHtml = "";
-  work_list.forEach((work: Work, index: number) => { 
+  work_list.forEach((work: Work, index: number) => {
     listHtml += `<li class="workdone-item">
     <div class="work-card">
       <div class="work-name">
